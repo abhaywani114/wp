@@ -1,0 +1,416 @@
+<html>
+  <head>
+    <title>Homepage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="assets/font/css/satoshi.css" rel="stylesheet" />
+    <style>
+    * {
+      font-family: 'Satoshi-Regular';
+    }
+    
+    :root {
+      --bs-primary-rgb: 34, 49, 57;
+      --bs-secondary-rgb: 224, 53, 0;
+    }
+    
+    .dot {
+      background: rgba(224, 53, 0, 1);
+      height:4px;
+      width:4px;
+    }
+    
+    .mylist > li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .mylist > li::before {
+        content: "\25A0";
+        color: rgba(224, 53, 0, 1);
+        font-weight: bold;
+        display: inline-block;
+        width: 10px;
+        font-size: 10px;
+    }
+    
+    .participant > li::before {
+      color: rgba(0, 116, 224, 1) !important;
+    }
+    
+    .hero {
+      background: url(assets/img/hero_1.png);
+      min-height: 80vh;
+      background-size: cover;
+      background-attachment: scroll;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(34, 49, 57, 0.8);
+      z-index: 1;
+    } 
+    .hero-main-text {
+      z-index: 2;
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      width: 70%;
+    }
+    
+    .hero-border {
+      border-bottom: 1px solid rgb(255 251 251 / 50%);
+    }
+
+    .latest-news {
+      background: #0E1518;
+      padding: 120px 150px;
+    }
+    .headding-1 {
+      color: #0074E0;
+      font-family: Satoshi;
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%; /* 76.8px */
+      text-transform: uppercase;
+    }
+
+    .bullet::before {
+        content: "\2022";
+        color: #fff;
+        font-weight: bold;
+        display: inline-block;
+        width: 20px;
+        font-size: 18px;
+    }
+    
+    .hero-2 {
+      border-radius: 10px;
+      background: url(assets/img/bg.png), lightgray 50% / cover no-repeat;
+      min-height: 100vh;
+      background-size: 75%;
+      background-repeat: no-repeat;
+      background-position: 0% 90%;
+      padding: 120px 150px;
+    }
+
+    .custom-div-hero-2 {
+      padding: 50px 65px;
+      background: rgba(255, 255, 255, 0.50);
+      backdrop-filter: blur(12px);
+    }
+    .custom-card {
+      background: #fff;
+      padding: 25px 55px;
+      box-shadow: 0px 16px 45px 0px rgba(152, 164, 170, 0.55);
+      margin: 10px 20px;
+    }
+    .custom-card > h1 {
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 40px; 
+    }
+    .custom-card > p {
+      font-size: 17px;
+      line-height: 28px; 
+      font-weight: 400;
+    }
+    .custom-card > button, .cta {
+      background: #0074E0;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      color: #fff;
+      outline: none;
+      border: unset;
+      border-radius: 6px;
+      padding: 10px;
+      font-weight: 700;
+      font-family: Satoshi;
+      text-align: center;
+    }
+    
+    .why-choose {
+      position: relative;
+      background: #0E1518;
+      padding: 120px 150px;
+      color: #fff;
+    }
+    .headding-2 {
+      color: #E03500;
+      text-align: center;
+      font-size: 54px;
+      font-style: normal;
+      font-weight: 700;
+      line-height:76.8px;
+      text-transform: uppercase;
+    }
+    .headding-2-c {
+      margin-bottom: 117px;
+    }
+    .custom_table {
+      color: #fff;
+      margin-top: 80px;
+    }
+
+    .custom_table > tbody > tr {
+      padding-bottom: 30px;
+      display: block;
+      padding-top: 30px;
+      border-bottom: 1px solid #fff;
+    }
+
+    .custom_table > tbody > tr > td:nth-child(1) {
+        width: 155px;
+        font-weight: 700;
+        vertical-align: baseline
+    }
+     
+    .custom_table > tbody > tr > td:nth-child(2)::before {
+        content: "\25A0";
+        color: rgba(224, 53, 0, 1);
+        font-weight: bold;
+        display: inline-block;
+        width: 40px;
+        font-size: 10px;
+        margin-left: -46px;
+    }
+    .back-image-1, .back-image-2 {
+      background: url(assets/img/up_tiles.png);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 250px;
+      z-index: 1;
+    }
+    .back-image-2 {
+      top: unset;
+      bottom: 0;
+    }
+    footer {
+      background: #223139;
+      padding: 65px 105px;
+    }
+    @media only screen and (max-width: 750px) {
+      .latest-news, .hero-2, .why-choose {
+        padding: 35px 25px;
+      }
+      .custom-div-hero-2 {
+        padding: 30px 7px;
+      }
+      footer {
+        padding: 55px 15px;
+      }
+      .mylist > li::before {
+       width: 25px; 
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar bg-primary  navbar-expand-md">
+       <div class="container-fluid justify-content-around">
+            <div class="navbar-brand text-white col-8 col-md-3">
+              <img src="assets/img/logo.png" class="img-responsive w-75" style="mix-blend-mode: lighten;" />
+            </div>
+            
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-md-grow-0 " id="navbarSupportedContent" style="width: 60%;">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white gap-3 mylist align-items-start">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Solutions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Value</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Who We Are</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Contact</a>
+                </li>
+              </ul>
+
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white mylist participant align-items-start">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Participant Site</a>
+                </li>
+              </ul>
+             </div>
+        </nav>
+
+        <section class="hero">
+          <div class="overlay"></div>
+          <div class="hero-main-text">
+            <div class="row">
+              <div class="col-6">
+                  <div class="text-white h2">
+                    TAILORED SOLUTIONS, DYNAMIC RESULTS
+                  </div>
+              </div>
+              <div class="col-6 hero-border">
+                <div class=" text-white h3 d-flex align-items-center gap-2 justify-content-end">
+                  <span class="bold" style="transform: translateY(-4px);font-size: 50px;">40</span>
+                  <span class="dot" style="transform: translateY(10px);"></span>
+                  <span class="h5 text-uppercase" style="width: 95px;">years of expertise</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="latest-news">
+          <h1 class="headding-1">LATEST NEWS</h1>
+          <div class="row mt-5">
+            <div class="col-md-6 text-white">
+              <p class="bullet" style="font-size: 14px;">24 NOV 2021</p>
+              <p class="mt-3 fw-bold text-uppercase">Is Your OPEB Trust Trustworthy? Ask these three questions to find out…</p>
+              <p class="mt-3">Are you considering establishing a trust to set aside funds to manage and reduce your OPEB (retiree healthcare) liabilities? If so, it is important to set up the trust in the right way – to make sure it is compliant with the IRS, federal accounting rules (GASB) and state laws.</p>
+              <p class="mt-3 text-decoration-underline pb-1" style="font-size: 14px;">read more...</p>
+            </div>
+            <div class="col-md-6">
+              <img class="w-100" src="assets/img/latest-news.png" />
+            </div>
+          </div>
+        </section>
+        
+        <section class="hero-2">
+          <div class="row custom-div-hero-2">
+            <div class="col-md-4">
+              <h1 class="headding-1">PARS: Synergy in Partnership</h1>
+              <p class="mt-2" style="font-size: 24px;">Since 1984, we’ve been collaborating with public agencies on mutually-beneficial employee retirement solutions. Our financial products and strategies optimize returns while ensuring they meet your agency’s specific needs and adhere to all necessary regulations.</p>
+            </div>
+            <div class="col-md-8">
+              <div class="custom-card">
+                <h1>For Educational Agencies</h1>
+                <p>PARS has helped hundreds of school districts design and implement strategic retirement solutions that meet their specific organizational and budgetary needs.</p>
+                <button>Go to educational-targeted products</button>
+              </div>
+
+              <div class="custom-card mt-5">
+                <h1>For Municipal Agencies</h1>
+                <p>PARS has helped hundreds of public agencies design and implement strategic retirement solutions that meet their specific organizational and budgetary needs.</p>
+                <button>Go to Municipal-targeted products</button>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <section class="why-choose">
+          <div class="back-image-1"></div>
+          <div class="back-image-2"></div>
+          <div style="z-index: 2;position: relative;">
+            <h1 class="headding-2 headding-2-c">Why Choose PARS?</h1>
+            <div>
+              <img class="w-100" src="assets/img/video_thumbnail.png">
+            </div>
+            <div style="width: 85%; margin: auto;">
+            <table class="custom_table">
+              <tbody>
+                <tr>
+                  <td>
+                    Stability
+                  </td>
+                  <td>
+                    Our #1 goal is to maintain the integrity of your portfolio. We never recommend financial products unless they present a strong benefit/minimal risk scenario for your agency & workforce.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Streamlining
+                  </td>
+                  <td>
+                    Through experience, expertise and our professional networks, we craft a unique approach to each agency’s particular needs and trim the excess without undermining your core investments.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Accessibility
+                  </td>
+                  <td>
+                    We’re hands-on. We guide you through each step of the process, and we’re always available to you.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Value
+                  </td>
+                  <td>
+                    Our customized solutions have cumulatively saved more than 1,000 public agencies hundreds of millions of dollars. The value we provide to your organization is exponential.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="p-5">
+              <p class="text-white fs-5 fw-bold mt-4 text-center">DISCOVER WHAT PARS CAN DO TO SAVE YOUR ORGANIZATION MONEY AND IMPROVE OUTCOMES FOR YOUR TEAM</p>
+                  <button class="cta d-block mx-auto">Connect with PARS now</button>
+            </div>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <div class="row">
+            <div class="col-md-4">
+              <img src="assets/img/logo.png" class="w-75" style="mix-blend-mode: lighten;" />
+            </div>
+            <div class="col-md-8">
+             <ul class=" mb-2 mb-lg-0 text-white gap-3 d-flex p-0 justify-content-md-end" style="list-style: none;flex-wrap: wrap;">
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Solutions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Value</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Who We Are</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-md-6">
+              <p class="text-white" style="font-size:12px;"><span class="m-3" style="margin-left:0 !important;">ⓒ PUBLIC AGENCY RETIREMENT SERVICES  2023</span> | <span class="mx-3 text-decoration-underline">Terms of Use</span> | <span class="mx-3 text-decoration-underline">Privacy Policy</span></p>
+            </div>
+            <div class="col-md-6">
+
+              <ul class=" mb-2 mb-lg-0 text-white gap-3 d-flex justify-content-md-end" style="list-style: none;">
+                <li class="nav-item">
+                  <img src="assets/img/sm/ig.png" style="width: auto; height: 20px;" />
+                </li>
+                <li class="nav-item">
+                  <img src="assets/img/sm/li.png" style="width: auto; height: 20px;" />
+                </li> 
+                <li class="nav-item">
+                  <img src="assets/img/sm/tw.png" style="width: auto; height: 20px;" />
+                </li>
+                <li class="nav-item">
+                  <img src="assets/img/sm/fb.png" style="width: auto; height: 20px;" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
